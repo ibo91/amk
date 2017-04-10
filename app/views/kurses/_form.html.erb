@@ -1,25 +1,16 @@
-<%= form_for(@kurse) do |f| %>
-  <% if @kurse.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@kurse.errors.count, "error") %> prohibited this kurse from being saved:</h2>
-
-      <ul>
-      <% @kurse.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @kurse, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :kursname, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :kursname, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :kursname %><br>
-    <%= f.text_area :kursname %>
-  </div>
-  <div class="field">
-    <%= f.label :gruppen_id %><br>
-    <%= f.text_field :gruppen_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  kurses_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

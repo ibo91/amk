@@ -1,6 +1,5 @@
-<h1>Editing kurse</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @kurse %> |
-<%= link_to 'Back', kurses_path %>
+<%- model_class = Kurse -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Kurse %></h1>
+</div>
+<%= render :partial => 'form' %>
