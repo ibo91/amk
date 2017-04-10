@@ -1,27 +1,34 @@
-<h1>Listing favoritens</h1>
-
-<table>
+<%- model_class = Favoriten -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Favoriten %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Karteikarten</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @favoritens.each do |favoriten| %>
       <tr>
-        <td><%= favoriten.user %></td>
-        <td><%= favoriten.karteikarten %></td>
-        <td><%= link_to 'Show', favoriten %></td>
-        <td><%= link_to 'Edit', edit_favoriten_path(favoriten) %></td>
-        <td><%= link_to 'Destroy', favoriten, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= favoriten.id %></td>
+        <td><%=l favoriten.created_at, format: :long %></td>
+        <td>
+          <%= link_to favoriten_path(favoriten), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to favoriten_path(favoriten), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Favoriten', new_favoriten_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_favoriten_path,
+            :class => 'btn btn-primary' %>
