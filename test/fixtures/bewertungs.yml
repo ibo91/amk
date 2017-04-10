@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bewertungswert: 1
+  user_id: 
+  karteikarten_id: 
+
+two:
+  bewertungswert: 1
+  user_id: 
+  karteikarten_id: 
