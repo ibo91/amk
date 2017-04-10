@@ -1,5 +1,6 @@
-<h1>New bewertung</h1>
+<%- model_class = Bewertung -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => Bewertung %></h1>
+</div>
+<%= render :partial => 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', bewertungs_path %>

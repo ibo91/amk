@@ -1,6 +1,5 @@
-<h1>Editing bewertung</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @bewertung %> |
-<%= link_to 'Back', bewertungs_path %>
+<%- model_class = Bewertung -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Bewertung %></h1>
+</div>
+<%= render :partial => 'form' %>

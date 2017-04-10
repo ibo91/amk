@@ -1,29 +1,36 @@
-<h1>Listing bewertungs</h1>
-
-<table>
+<%- model_class = Bewertung -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Bewertung %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Bewertungswert</th>
-      <th>User</th>
-      <th>Karteikarten</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:bewertungswert) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @bewertungs.each do |bewertung| %>
       <tr>
+        <td><%= bewertung.id %></td>
         <td><%= bewertung.bewertungswert %></td>
-        <td><%= bewertung.user %></td>
-        <td><%= bewertung.karteikarten %></td>
-        <td><%= link_to 'Show', bewertung %></td>
-        <td><%= link_to 'Edit', edit_bewertung_path(bewertung) %></td>
-        <td><%= link_to 'Destroy', bewertung, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l bewertung.created_at, format: :long %></td>
+        <td>
+          <%= link_to bewertung_path(bewertung), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to bewertung_path(bewertung), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Bewertung', new_bewertung_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_bewertung_path,
+            :class => 'btn btn-primary' %>
