@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+
   resources :beantwortets do
   #->Prelang (voting/acts_as_votable)
   member do
