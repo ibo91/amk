@@ -1,5 +1,5 @@
 class KarteikartensController < ApplicationController
-  before_action :set_karteikarten, only: [:show, :edit, :update, :destroy]
+  before_action :set_karteikarten, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /karteikartens
   # GET /karteikartens.json
