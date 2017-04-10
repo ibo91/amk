@@ -1,6 +1,5 @@
-<h1>Editing gruppen</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @gruppen %> |
-<%= link_to 'Back', gruppens_path %>
+<%- model_class = Gruppen -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Gruppen %></h1>
+</div>
+<%= render :partial => 'form' %>
