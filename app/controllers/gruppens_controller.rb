@@ -1,5 +1,5 @@
 class GruppensController < ApplicationController
-  before_action :set_gruppen, only: [:show, :edit, :update, :destroy]
+  before_action :set_gruppen, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /gruppens
   # GET /gruppens.json
