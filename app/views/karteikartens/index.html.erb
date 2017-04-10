@@ -1,35 +1,42 @@
-<h1>Listing karteikartens</h1>
-
-<table>
+<%- model_class = Karteikarten -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Karteikarten %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Titel</th>
-      <th>Vorderseite</th>
-      <th>Rueckseite</th>
-      <th>Aufrufe</th>
-      <th>User</th>
-      <th>Kurse</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:titel) %></th>
+      <th><%= model_class.human_attribute_name(:vorderseite) %></th>
+      <th><%= model_class.human_attribute_name(:rueckseite) %></th>
+      <th><%= model_class.human_attribute_name(:aufrufe) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @karteikartens.each do |karteikarten| %>
       <tr>
+        <td><%= karteikarten.id %></td>
         <td><%= karteikarten.titel %></td>
         <td><%= karteikarten.vorderseite %></td>
         <td><%= karteikarten.rueckseite %></td>
         <td><%= karteikarten.aufrufe %></td>
-        <td><%= karteikarten.user %></td>
-        <td><%= karteikarten.kurse %></td>
-        <td><%= link_to 'Show', karteikarten %></td>
-        <td><%= link_to 'Edit', edit_karteikarten_path(karteikarten) %></td>
-        <td><%= link_to 'Destroy', karteikarten, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l karteikarten.created_at, format: :long %></td>
+        <td>
+          <%= link_to karteikarten_path(karteikarten), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to karteikarten_path(karteikarten), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Karteikarten', new_karteikarten_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_karteikarten_path,
+            :class => 'btn btn-primary' %>

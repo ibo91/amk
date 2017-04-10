@@ -1,41 +1,34 @@
-<%= form_for(@karteikarten) do |f| %>
-  <% if @karteikarten.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@karteikarten.errors.count, "error") %> prohibited this karteikarten from being saved:</h2>
-
-      <ul>
-      <% @karteikarten.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @karteikarten, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :titel, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :titel, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :vorderseite, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :vorderseite, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :rueckseite, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :rueckseite, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :aufrufe, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :aufrufe, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :titel %><br>
-    <%= f.text_area :titel %>
-  </div>
-  <div class="field">
-    <%= f.label :vorderseite %><br>
-    <%= f.text_area :vorderseite %>
-  </div>
-  <div class="field">
-    <%= f.label :rueckseite %><br>
-    <%= f.text_area :rueckseite %>
-  </div>
-  <div class="field">
-    <%= f.label :aufrufe %><br>
-    <%= f.number_field :aufrufe %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :kurse_id %><br>
-    <%= f.text_field :kurse_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  karteikartens_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

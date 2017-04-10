@@ -1,6 +1,5 @@
-<h1>Editing karteikarten</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @karteikarten %> |
-<%= link_to 'Back', karteikartens_path %>
+<%- model_class = Karteikarten -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Karteikarten %></h1>
+</div>
+<%= render :partial => 'form' %>
