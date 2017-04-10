@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titel:</strong>
+  <%= @karteikarten.titel %>
+</p>
+
+<p>
+  <strong>Vorderseite:</strong>
+  <%= @karteikarten.vorderseite %>
+</p>
+
+<p>
+  <strong>Rueckseite:</strong>
+  <%= @karteikarten.rueckseite %>
+</p>
+
+<p>
+  <strong>Aufrufe:</strong>
+  <%= @karteikarten.aufrufe %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @karteikarten.user %>
+</p>
+
+<p>
+  <strong>Kurse:</strong>
+  <%= @karteikarten.kurse %>
+</p>
+
+<%= link_to 'Edit', edit_karteikarten_path(@karteikarten) %> |
+<%= link_to 'Back', karteikartens_path %>

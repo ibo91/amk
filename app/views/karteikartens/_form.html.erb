@@ -1,0 +1,41 @@
+<%= form_for(@karteikarten) do |f| %>
+  <% if @karteikarten.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@karteikarten.errors.count, "error") %> prohibited this karteikarten from being saved:</h2>
+
+      <ul>
+      <% @karteikarten.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titel %><br>
+    <%= f.text_area :titel %>
+  </div>
+  <div class="field">
+    <%= f.label :vorderseite %><br>
+    <%= f.text_area :vorderseite %>
+  </div>
+  <div class="field">
+    <%= f.label :rueckseite %><br>
+    <%= f.text_area :rueckseite %>
+  </div>
+  <div class="field">
+    <%= f.label :aufrufe %><br>
+    <%= f.number_field :aufrufe %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :kurse_id %><br>
+    <%= f.text_field :kurse_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

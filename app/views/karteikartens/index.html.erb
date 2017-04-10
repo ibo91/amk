@@ -1,0 +1,35 @@
+<h1>Listing karteikartens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titel</th>
+      <th>Vorderseite</th>
+      <th>Rueckseite</th>
+      <th>Aufrufe</th>
+      <th>User</th>
+      <th>Kurse</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @karteikartens.each do |karteikarten| %>
+      <tr>
+        <td><%= karteikarten.titel %></td>
+        <td><%= karteikarten.vorderseite %></td>
+        <td><%= karteikarten.rueckseite %></td>
+        <td><%= karteikarten.aufrufe %></td>
+        <td><%= karteikarten.user %></td>
+        <td><%= karteikarten.kurse %></td>
+        <td><%= link_to 'Show', karteikarten %></td>
+        <td><%= link_to 'Edit', edit_karteikarten_path(karteikarten) %></td>
+        <td><%= link_to 'Destroy', karteikarten, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Karteikarten', new_karteikarten_path %>
