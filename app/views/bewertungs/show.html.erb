@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bewertungswert:</strong>
+  <%= @bewertung.bewertungswert %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bewertung.user %>
+</p>
+
+<p>
+  <strong>Karteikarten:</strong>
+  <%= @bewertung.karteikarten %>
+</p>
+
+<%= link_to 'Edit', edit_bewertung_path(@bewertung) %> |
+<%= link_to 'Back', bewertungs_path %>

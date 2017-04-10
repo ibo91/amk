@@ -1,0 +1,29 @@
+<h1>Listing bewertungs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bewertungswert</th>
+      <th>User</th>
+      <th>Karteikarten</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bewertungs.each do |bewertung| %>
+      <tr>
+        <td><%= bewertung.bewertungswert %></td>
+        <td><%= bewertung.user %></td>
+        <td><%= bewertung.karteikarten %></td>
+        <td><%= link_to 'Show', bewertung %></td>
+        <td><%= link_to 'Edit', edit_bewertung_path(bewertung) %></td>
+        <td><%= link_to 'Destroy', bewertung, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bewertung', new_bewertung_path %>
