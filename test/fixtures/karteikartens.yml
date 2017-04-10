@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titel: MyText
+  vorderseite: MyText
+  rueckseite: MyText
+  aufrufe: 1
+  user_id: 
+  kurse_id: 
+
+two:
+  titel: MyText
+  vorderseite: MyText
+  rueckseite: MyText
+  aufrufe: 1
+  user_id: 
+  kurse_id: 
