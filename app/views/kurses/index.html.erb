@@ -1,0 +1,27 @@
+<h1>Listing kurses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kursname</th>
+      <th>Gruppen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kurses.each do |kurse| %>
+      <tr>
+        <td><%= kurse.kursname %></td>
+        <td><%= kurse.gruppen %></td>
+        <td><%= link_to 'Show', kurse %></td>
+        <td><%= link_to 'Edit', edit_kurse_path(kurse) %></td>
+        <td><%= link_to 'Destroy', kurse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Kurse', new_kurse_path %>
