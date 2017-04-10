@@ -1,5 +1,5 @@
 class BeantwortetsController < ApplicationController
-  before_action :set_beantwortet, only: [:show, :edit, :update, :destroy]
+  before_action :set_beantwortet, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /beantwortets
   # GET /beantwortets.json
