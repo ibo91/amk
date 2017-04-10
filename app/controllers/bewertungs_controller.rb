@@ -1,5 +1,5 @@
 class BewertungsController < ApplicationController
-  before_action :set_bewertung, only: [:show, :edit, :update, :destroy]
+  before_action :set_bewertung, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /bewertungs
   # GET /bewertungs.json
